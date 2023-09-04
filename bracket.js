@@ -8,10 +8,18 @@ function check(e){
         "{":0,
         "}":0
     }
+    let close = [")","]","}"]
+    let Open=["(","[","{"]
+    let keys = Object.keys(obj)
     a.split("").forEach((e,i)=>{
-        obj[e]++
+     	if(close.includes(e)){
+           obj[e]++
+        }else if(a[i+1]==close[Open.indexOf(e)]||Open.includes(a[i+1])){
+        	obj[e]++
+        }
     })
     if(obj["("]==obj[")"]&&obj["["]==obj["]"]&&obj["{"]==obj["}"]){
     	return true
     }else return false
 }
+
