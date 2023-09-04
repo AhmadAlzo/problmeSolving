@@ -79,8 +79,21 @@ Diamonds	Seal	Bananas	FALSE`
 
 
 function prodacte (arr){
+  function checkArr(arr1,arr2){
+  	let num=0
+  	for(let i=0;i<arr1.length;i++){
+    	if(arr1[i]==arr2[i]){num++}
+    }
+    return num
+  }
   let data = datas.split("\n").map(e=>e.split("\t").filter(e=>e!=" "||e!=""))
   let spec = [['Diamonds', 'Hearts', 'Spades', 'Clubs', 'Joker'],['Lion', 'Fox','Parrot', 'Seal','Snake'],['Apple', 'Bananas', 'Mango', 'Watermelon', 'Papaya'],["TRUE","FALSE"]]
   data = data.map(e=>e.map((j,i)=>spec[i].indexOf(j)))
-  return JSON.stringify(data)
+  arr = arr.map((e,i)=>spec[i].indexOf(e))
+  let res = []
+  data.forEach((e,i)=>{
+  	res.push(checkArr(e,arr))
+  })
+  const resultindex = res.indexOf(Math.max(...res))	
+  return data[resultindex][3]==1?false:true
 } 
