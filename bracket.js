@@ -14,7 +14,7 @@ function check(e){
     a.split("").forEach((e,i)=>{
      	if(close.includes(e)){
            obj[e]++
-        }else if(a[i+1]==close[Open.indexOf(e)]||Open.includes(a[i+1])){
+        }else if(a[i+1]==close[Open.indexOf(e)]||Open.includes(a[i+1])||i==a.length-1){
         	obj[e]++
         }
     })
