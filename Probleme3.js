@@ -6,13 +6,15 @@ class linkedList {
     this.inkdList[this.inkdList.length] = [e,null]
   }
   removeNodes(x){
+    let a = this.inkdList.copyWithin()
     for(let i =this.inkdList.length-1;i>0;i--){
       if(this.inkdList[i][0]>x){
-        this.inkdList.splice(i,1)
-        for(let j =i;i<this.inkdList.length-1;i++){
-          this.inkdList[j][1]--
+        a.splice(i,1)
+        for(let j =i;i<a.length-1;i++){
+          a[j][1]--
         }
       }
     }
+    return a
   }
 }
