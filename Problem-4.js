@@ -10,10 +10,10 @@ function check(e){
     }
     let close = [")","]","}"]
     let Open=["(","[","{"]
-    let keys = Object.keys(obj)
+
     a.split("").forEach((e,i)=>{
      	if(close.includes(e)){
-           obj[e]++
+            if(obj[Open[close.indexOf(e)]]>obj[e]){obj[e]++}
         }else if(a[i+1]==close[Open.indexOf(e)]||Open.includes(a[i+1])||i==a.length-1){
         	obj[e]++
         }
